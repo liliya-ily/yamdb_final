@@ -18,7 +18,9 @@ class UserViewSet(viewsets.ModelViewSet):
     lookup_field = 'username'
     permission_classes = [AdminPerm]
 
-    @action(detail=False, permission_classes=[IsAuthenticated], methods=['PATCH', 'GET'])
+    @action(detail=False, 
+            permission_classes=[IsAuthenticated], 
+            methods=['PATCH', 'GET'])
     def me(self, request, *args, **kwargs):
         serializer = UserSerializer(
             request.user, data=request.data, partial=True)
@@ -65,4 +67,5 @@ class Get_token(APIView):
             return Response(("Ваш токен: " + get_tokens_for_user(user)))
 
         except User.DoesNotExist:
-            return Response("Пользователь не найден или код подтверждения не верный")
+            return Response("Пользователь не найден или код" \
+                " подтверждения не верный")

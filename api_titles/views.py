@@ -3,7 +3,8 @@ from rest_framework import viewsets, filters, status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from .models import Category, Genre, Title
-from .serializers import CategorySerializer, TitleListSerializer, TitleCreateSerializer, GenreSerializer
+from .serializers import TitleCreateSerializer, GenreSerializer
+from .serializers import CategorySerializer, TitleListSerializer
 from .filters import TitlesFilter
 from api_user.permissions import AdminOrReadPerm
 
