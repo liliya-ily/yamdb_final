@@ -1,5 +1,6 @@
 # Докеризация API для Ya|MDb. 
 
+![yamdb%20workflow Actions Status](https://github.com/liliya-ily/yamdb_final/workflows/Yamdb_final_workflows/badge.svg)
 ## Установка
 
 #### Шаг первый. Проверьте установлен ли у вас Docker и docker-compose
