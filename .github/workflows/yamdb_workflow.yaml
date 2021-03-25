@@ -42,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: 02010703/yamdb_аштфд:latest
+          tags: 02010703/yamdb_final:latest
 
   deploy:
     runs-on: ubuntu-latest
