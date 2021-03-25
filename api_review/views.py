@@ -16,7 +16,8 @@ class ReviewViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         title = get_object_or_404(Title, id=self.kwargs.get('title_id'))
-        if Review.objects.filter(author=self.request.user, title=title).exists():
+        if Review.objects.filter(author=self.request.user,
+                                 title=title).exists():
             raise ValidationError('Оценка уже выставлена')
         serializer.save(author=self.request.user, title=title)
         agg_score = Review.objects.filter(title=title).aggregate(Avg('score'))
