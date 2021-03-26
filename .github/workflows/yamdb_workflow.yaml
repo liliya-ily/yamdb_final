@@ -66,7 +66,6 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          port: ${{ secrets.PORT }}
           script: |
             cd yamdb_final
             sudo docker-compose stop && sudo docker-compose up -d --build 
