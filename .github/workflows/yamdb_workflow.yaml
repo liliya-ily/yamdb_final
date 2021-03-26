@@ -55,6 +55,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
+          port: ${{ secrets.PORT }}
           source: "docker-compose.yaml, nginx/docker.conf"
           target: "yamdb_final"
       - name: executing remote ssh commands to deploy
