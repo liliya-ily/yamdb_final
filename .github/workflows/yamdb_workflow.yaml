@@ -57,7 +57,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           source: "docker-compose.yaml, nginx/docker.conf"
-          target: "yamdb_final"
+          target: "~/"
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
