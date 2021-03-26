@@ -55,13 +55,13 @@ jobs:
           host: 130.193.58.200
           username: ilyliliya
           key: ${{ secrets.SSH_KEY }}
-          passphrase: 5362
+          passphrase: ${{ secrets.PASSPHRASE }}
           source: "docker-compose.yaml, nginx/docker.conf"
-          target: "~/"
+          target: "yamdb_final"
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
+          host: 130.193.58.200
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
