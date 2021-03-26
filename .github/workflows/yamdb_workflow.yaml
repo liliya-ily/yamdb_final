@@ -66,8 +66,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          script: |
-            cd ~/
+          port: ${{ secrets.PORT }}
+          script:
             sudo docker-compose stop && sudo docker-compose up -d --build 
   send_message:
     runs-on: ubuntu-latest
