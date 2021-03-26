@@ -52,10 +52,10 @@ jobs:
       - name: copy file via ssh key
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+          host: 
+          username: ilyliliya
+          key: 130.193.58.200
+          passphrase: 5362
           source: "docker-compose.yaml, nginx/docker.conf"
           target: "~/"
       - name: executing remote ssh commands to deploy
