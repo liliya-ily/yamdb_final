@@ -104,7 +104,7 @@ jobs:
             sudo chmod +x /usr/local/bin/docker-compose
             sudo pwd 
             sudo ls
-            sudo cd yamdb_final
+            cd yamdb_final
             sudo pwd 
             sudo ls
             sudo docker-compose stop && docker-compose up -d --build 
