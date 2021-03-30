@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: "./docker-compose.yaml,./nginx/docker.conf"
+          source: "docker-compose.yaml, nginx/docker.conf"
           target: "yamdb_final"
   deploy:
     runs-on: ubuntu-latest
