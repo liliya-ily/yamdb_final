@@ -111,6 +111,9 @@ jobs:
             else
                 echo "$FILE does not exist"
             fi
+            sudo groupadd docker
+            sudo usermod -aG docker $USER
+            newgrp - docker
             echo "Add new $FILE"
             docker cp $id:/usr/src/web/$FILE $FILE
             sudo docker rm -v $id
