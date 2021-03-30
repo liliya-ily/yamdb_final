@@ -92,32 +92,16 @@ jobs:
                 sh get-docker.sh
             fi
       - 
-        name: Compose up
+        name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
+          host: 130.193.58.200
           username: ${{ secrets.USER }}
-          PORT: ${{ secrets.PORT }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}:latest
-            id=$(docker create ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}:latest)
-            FILE=docker-compose.yaml
-            if [ -f "$FILE" ]
-            then
-                echo "$FILE exists and will removed"
-                rm $FILE
-            else
-                echo "$FILE does not exist"
-            fi
-            echo "Add new $FILE"
-            docker container prune 
-            sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
-            sudo docker stop $(sudo docker ps -a -q) > /dev/null 2>&1
-            sudo docker kill $(sudo docker ps -a -q) > /dev/null 2>&1
-            sudo docker-compose up -d --force-recreate
+            cd yamdb_final
+            sudo docker-compose stop && docker-compose up -d --build 
       - 
         name: Prepare django
         uses: appleboy/ssh-action@master
