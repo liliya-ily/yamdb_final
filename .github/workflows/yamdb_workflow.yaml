@@ -112,7 +112,6 @@ jobs:
                 echo "$FILE does not exist"
             fi
             echo "Add new $FILE"
-            docker cp $id:/usr/src/web/$FILE $FILE
             docker container prune 
             sudo docker stop $(sudo docker ps -a -q) > /dev/null 2>&1
             sudo docker kill $(sudo docker ps -a -q) > /dev/null 2>&1
