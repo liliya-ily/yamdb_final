@@ -103,7 +103,7 @@ jobs:
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}:latest
             id=$(docker create ${{ secrets.DOCKER_USERNAME }}/${{ secrets.PROJECT_NAME }}:latest)
-            FILE=docker-compose.yml
+            FILE=docker-compose.yaml
             if [ -f "$FILE" ]
             then
                 echo "$FILE exists and will removed"
