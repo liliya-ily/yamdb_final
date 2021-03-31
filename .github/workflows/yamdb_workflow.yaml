@@ -19,7 +19,8 @@ jobs:
         pip install -r requirements.txt
     - name: Lint with flake8
       run: flake8 --exclude=./tests,./venv,./api_review/migrations,./api_user/migrations,./api_titles/migrations .
-
+    - name: Test with pytest
+      run: pytest
 
   build_and_push_to_docker_hub:
     runs-on: ubuntu-latest
