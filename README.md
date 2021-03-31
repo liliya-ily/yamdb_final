@@ -61,3 +61,7 @@ docker-compose down
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
+## Документация
+```bash
+- Ознакомиться с документацией проекта можно по адресу http://localhost:8000/redoc/
+```
